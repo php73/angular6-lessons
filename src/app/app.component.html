@@ -1,6 +1,4 @@
-<ul #someId>
-  <app-user-form [(user)]="currentUser" (userChange)="addUser()"></app-user-form>
-  <app-user-card [card]="currentUser"></app-user-card>
-  <app-user-list [users]="users"></app-user-list>
-</ul>
+<app-user-form [(user)]="currentUser" (userChange)="addUser()"></app-user-form>
+<app-user-card [card]="currentUser"></app-user-card>
+<app-user-list [users]="users"></app-user-list>
 
