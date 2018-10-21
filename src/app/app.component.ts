@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, ContentChild, ElementRef, OnInit, ViewChild, ViewChildren} from '@angular/core';
-import {UserListItemComponent} from './user-list-item/user-list-item.component';
-import {User} from './shared/user.model';
+import {UserListItemComponent} from './user/user-list-item/user-list-item.component';
+import {User} from './user/shared/user';
+import {ObjectHelper} from './shared/helpers/object-helper';
 
 const LOCAL_STORAGE_KEY = 'users';
 
@@ -14,7 +15,10 @@ export class AppComponent {
   users: User[];
 
   constructor() {
-    this.users = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
+    this.users = (<User[]>JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || []).map((item: any) => {
+      return ObjectHelper.createFromObject(User, item);
+    });
+    console.log(this.users);
     this.currentUser = this.getCurrentUser();
   }
 

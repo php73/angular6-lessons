@@ -1,5 +1,5 @@
 import {Component, EventEmitter, HostBinding, HostListener, Input, OnInit, Output} from '@angular/core';
-import {User} from '../shared/user.model';
+import {User} from '../shared/user';
 
 @Component({
   selector: 'app-user',
