@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from '../shared/user';
+import {UserService} from '../shared/user.service';
 
 @Component({
   selector: 'app-user-list',
@@ -7,5 +8,10 @@ import {User} from '../shared/user';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent {
-  @Input() users: User[] = [];
+  constructor(private userService: UserService) {
+  }
+
+  get users() {
+    return this.userService.users;
+  }
 }

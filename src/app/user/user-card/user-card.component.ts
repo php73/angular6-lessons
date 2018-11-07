@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from '../shared/user';
+import {UserService} from '../shared/user.service';
 
 @Component({
   selector: 'app-user-card',
@@ -7,5 +8,10 @@ import {User} from '../shared/user';
   styleUrls: ['./user-card.component.css']
 })
 export class UserCardComponent {
-  @Input() card: User;
+  user: User;
+  constructor(private userService: UserService) {
+    this.userService.viewId.subscribe((id: number) => {
+      this.user = this.userService.getUser(id);
+    });
+  }
 }
