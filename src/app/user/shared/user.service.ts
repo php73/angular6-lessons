@@ -22,6 +22,7 @@ export class UserService {
   }
 
   getUser(id: number): User {
+    console.log(this._users);
     return this._users.find((user: User) => user.id === id);
   }
 

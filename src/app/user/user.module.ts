@@ -6,11 +6,13 @@ import {UserCardComponent} from './user-card/user-card.component';
 import {UserListComponent} from './user-list/user-list.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UserService} from './shared/user.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   imports: [
     ReactiveFormsModule,
     CommonModule,
+    HttpClientModule
   ],
   declarations: [
     UserListItemComponent,
